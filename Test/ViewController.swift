@@ -9,8 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var product = [String]()
-    var price = [Double]()
+    var results = [Product]()
     @IBOutlet weak var productTextField: UITextField!
     
 
@@ -21,13 +20,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBAction func searchPressed(_ sender: Any) {
+        
         fetchItems(completionHandler: { items in
             print(items.products.count)
-            for i in 0...items.products.count-1{
-                print(items.products[i].name)
-                self.product.append(items.products[i].name)
-                self.price.append(items.products[i].salePrice)
+            self.results = []
+            if items.products.count == 0{
+                print("No results found")
+                self.results.append(Product(name: "No results found", salePrice: nil))
+            }else{
+                for i in 0...items.products.count-1{
+                    print(items.products[i].name)
+                    self.results.append(items.products[i])
+                }
+                
             }
+            
             
             
             DispatchQueue.main.async {
@@ -41,13 +48,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.product.count
+        return self.results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let aCell = self.productTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        aCell.productLabel.text = self.product[indexPath.row]
-        aCell.priceLabel.text = String(self.price[indexPath.row])
+        aCell.productLabel.text = self.results[indexPath.row].name
+        if let price = self.results[indexPath.row].salePrice{
+            aCell.priceLabel.text = String(price)
+        }
+        
         return aCell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
