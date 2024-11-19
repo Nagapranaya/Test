@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A659A2002CE5514900601334 /* productDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A659A1FF2CE5514900601334 /* productDetailModel.swift */; };
 		A6FC077F2CE273DA008C8904 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC077E2CE273DA008C8904 /* AppDelegate.swift */; };
 		A6FC07812CE273DA008C8904 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC07802CE273DA008C8904 /* SceneDelegate.swift */; };
 		A6FC07832CE273DA008C8904 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FC07822CE273DA008C8904 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A659A1FF2CE5514900601334 /* productDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productDetailModel.swift; sourceTree = "<group>"; };
 		A6FC077B2CE273DA008C8904 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FC077E2CE273DA008C8904 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FC07802CE273DA008C8904 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				A6FC07842CE273DA008C8904 /* Main.storyboard */,
 				A6FC07952CE2743A008C8904 /* TableViewCell.swift */,
 				A6FC07972CE27DFF008C8904 /* productModel.swift */,
+				A659A1FF2CE5514900601334 /* productDetailModel.swift */,
 				A6FC078A2CE273DC008C8904 /* Assets.xcassets */,
 				A6FC078C2CE273DC008C8904 /* LaunchScreen.storyboard */,
 				A6FC078F2CE273DC008C8904 /* Info.plist */,
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A659A2002CE5514900601334 /* productDetailModel.swift in Sources */,
 				A6FC079A2CE3C184008C8904 /* ProductDetailsViewController.swift in Sources */,
 				A6FC07962CE2743A008C8904 /* TableViewCell.swift in Sources */,
 				A6FC07982CE27DFF008C8904 /* productModel.swift in Sources */,

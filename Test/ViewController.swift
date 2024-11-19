@@ -10,6 +10,9 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var results = [Product]()
+    var productDetail = [Detail]()
+    var skuno: Int64 = 0
+    
     @IBOutlet weak var productTextField: UITextField!
     
 
@@ -26,7 +29,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.results = []
             if items.products.count == 0{
                 print("No results found")
-                self.results.append(Product(name: "No results found", salePrice: nil))
+                
+                self.results.append(Product(name: "No results found", salePrice: nil, sku: nil))
             }else{
                 for i in 0...items.products.count-1{
                     print(items.products[i].name)
@@ -61,9 +65,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return aCell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        print(indexPath)
+        skuno = results[indexPath.row].sku!
         performSegue(withIdentifier: "productDetails", sender: self)
         
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "productDetails"{
+            let destinationVc = segue.destination as! ProductDetailsViewController
+            
+            destinationVc.skuno = skuno
+        }
     }
     
     
@@ -88,6 +100,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         task.resume()
     }
+    
+    
     
 }
 

@@ -14,4 +14,5 @@ struct Items: Codable{
 struct Product: Codable{
     let name: String
     let salePrice: Double?
+    let sku: Int64?
 }
